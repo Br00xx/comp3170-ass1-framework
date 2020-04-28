@@ -13,7 +13,7 @@ public class River extends SceneObject {
 	float[] Two = {0.8f, 0.1f};
 	float[] Three = {0.3f, 1.0f};
 
-	//private float[] riverVerts = quadBezierCurve(6.0f);
+	private float[] riverVerts = quadBezierCurve(6.0f);
 	
 	private float[] vertices = {0, 1.0f,
 								0, -1.0f,	
@@ -30,6 +30,7 @@ public class River extends SceneObject {
 	
 	public River (Shader shader) {		
 		this.vertexBuffer = shader.createBuffer(vertices);
+		//this.vertexBuffer = shader.createBuffer(riverVerts);
 	}
 	
 	
@@ -80,9 +81,9 @@ public class River extends SceneObject {
 		shader.setAttribute("a_position", this.vertexBuffer);
 		shader.setUniform("u_colour", this.riverColour);
 		gl.glPointSize(10);
-		gl.glDrawArrays(GL.GL_TRIANGLES, 0, this.vertices.length/2);
+		//gl.glDrawArrays(GL.GL_TRIANGLES, 0, this.vertices.length/2);
 		// uncomment for correct bezier curve draw
-		//gl.glDrawArrays(GL.GL_LINE_STRIP, 0, riverVerts.length);
+		gl.glDrawArrays(GL.GL_LINE_STRIP, 0, riverVerts.length);
 	}
 	
 }

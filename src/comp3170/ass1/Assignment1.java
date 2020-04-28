@@ -134,6 +134,7 @@ public class Assignment1 extends JFrame implements GLEventListener {
 		
 		River river = new River(this.shader);
 		river.setParent(this.root);
+		// comment out next two lines when looking at bezier curve river
 		river.localMatrix.rotate(TAU/8, 0, 0, 1);
 		river.localMatrix.scale(0.2f, 2.5f, 1.0f);
 
